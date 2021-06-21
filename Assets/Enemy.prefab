@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6937643972051303197}
   - component: {fileID: 6937643972051303198}
   - component: {fileID: 6937643972051303196}
-  - component: {fileID: 4785652163448473326}
+  - component: {fileID: -7988678043146412276}
+  - component: {fileID: 6103091648713675655}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6937643972051303199}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0.717, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,7 +125,21 @@ PolygonCollider2D:
       - {x: 0.13755696, y: -0.07755691}
       - {x: 0.16776793, y: -0.07595782}
       - {x: 0.16574681, y: -0.014253202}
---- !u!50 &4785652163448473326
+--- !u!114 &-7988678043146412276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6937643972051303199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2cc25c44bc46747ba751ce22ab0869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  scorevalue: 1
+--- !u!50 &6103091648713675655
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -144,4 +159,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

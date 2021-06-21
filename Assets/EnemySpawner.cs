@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyship;
-    public float repeatTime = 3.0f;
-    float time = 0;
+    public float time = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemies", 1f, repeatTime); ;
+        //  ObjectPooler.Instance.SpawnFromPool("bullet", transform.position, Quaternion.identity);
     }
-
+   GameObject temp1;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        time = time + Time.deltaTime; 
-        if(time>7.0f)
+
+        if (time >= 3.0f)
         {
-            repeatTime--;
-            time = 0;
+            if (temp1 != null)
+               temp1.SetActive(false);
+            Vector3 enemySpawnPosition = new Vector3(Random.Range(-8.0f, 8.0f), 5.0f, 0);
+            GameObject temp = ObjectPooler.Instance.SpawnFromPool("Enemy", enemySpawnPosition, Quaternion.Euler(0f,0f,180f));
+            temp1 = temp;
+            time = 0.0f;
+
+
         }
-    }
-    private void SpawnEnemies()
-    {
-        transform.position = new Vector3(Random.Range(-8, 8), 5.0f, 0);
-        GameObject enemy = Instantiate(enemyship,transform.position,transform.rotation * Quaternion.Euler(0f,180f,0f));
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down;
+        time += Time.deltaTime;
+
     }
 }
